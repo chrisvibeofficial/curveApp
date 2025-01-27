@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 
       employePerformance.associate = (models)=>{
           employePerformance.belongsTo(
-          models.employeInfo,{foreignKey:"employeId", as:"employeInfo"}
+          models.employeInfo,{foreignKey:"employeeId", as:"employeInfo"}
           )
       }
     }

@@ -9,14 +9,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
+      // employeeId: {
+      //   type: Sequelize.UUID,
+      //   allowNull: false,
+
+      //   references: {
+      //     model: 'employeInfo',
+      //     key: "id"
+      //   },
+      //   onUpdate: "CASCADE",
+      //   onDelete: "CASCADE"
+      // },
       employeeId: {
         type: Sequelize.UUID,
+        allowNull: false,
         references: {
-          model: 'employeinfo',
-          key: "id"
+          model: 'employeInfos', // Ensure this table exists
+          key: 'id',
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"
+        onDelete: 'CASCADE',
       },
       rating: {
         type: Sequelize.STRING
