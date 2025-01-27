@@ -1,4 +1,6 @@
+const { UUIDV4 } = require('sequelize');
 const { employePerformance } = require('../models');
+const  {v4:uuidv4, validate} = require ("uuid")
 const date = new Date
 console.log(date.toLocaleDateString())
 exports.createPerformance = async (req, res) => {
@@ -15,6 +17,7 @@ exports.createPerformance = async (req, res) => {
     //   return res.status(404).json({message: 'Employee not found'});
     //  }
      const data = {
+      id:uuidv4(),
       employeeId:employeeId,
       rating: rating +'%',
       puctuality: punctuality
@@ -25,7 +28,9 @@ exports.createPerformance = async (req, res) => {
       data: employeePerformance
      })
   } catch (error) {
+    console.log(error)
     res.status(500).json({
+      
       message: 'Internal server error',
       error: error.message
     })

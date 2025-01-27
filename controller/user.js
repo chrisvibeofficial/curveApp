@@ -38,11 +38,16 @@ const data = req.body
   
 }}
 
+
+const {employePerformance }= require('../models');
 exports.getUserInfo =async (req,res)=>{
   try {
 
-    const userInfo = await employeInfo.findByPK(req.params.id,{include:[
-      {model:"employePerformance",attributes:["rating","punctuality"]}
+    const userInfo = await employeInfo.findByPk(req.params.id,{include:[
+      {
+        model:employePerformance,
+        as: 'employePerformance', 
+        attributes:["rating","punctuality"]}
     ]})
     res.status(200).json({message:`kindly find below the user requested and the associated data`, data:userInfo})
   } catch (error) {
