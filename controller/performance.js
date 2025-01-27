@@ -1,9 +1,12 @@
 const { employePerformance } = require('../models');
-console.log(employePerformance)
+const date = new Date
+console.log(date.toLocaleDateString())
 exports.createPerformance = async (req, res) => {
   try {
+
     const date = new Date
     const {employeeId} = req.params;
+   
     const {rating} = req.body;
     const punctuality = date.toLocaleDateString()
     //  const checkEmployee = await employeperformance.findByPk(employeeId)
@@ -12,7 +15,7 @@ exports.createPerformance = async (req, res) => {
     //   return res.status(404).json({message: 'Employee not found'});
     //  }
      const data = {
-      employeeId,
+      employeeId:employeeId,
       rating: rating +'%',
       puctuality: punctuality
      }
