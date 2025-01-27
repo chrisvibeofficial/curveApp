@@ -6,11 +6,11 @@ exports.createPerformance = async (req, res) => {
     const {employeeId} = req.params;
     const {rating} = req.body;
     const punctuality = date.toLocaleDateString()
-     const checkEmployee = await employeperformance.findOne({where: {employeeId}});
+    //  const checkEmployee = await employeperformance.findByPk(employeeId)
 
-     if (!checkEmployee) {
-      return res.status(404).json({message: 'Employee not found'});
-     }
+    //  if (!checkEmployee) {
+    //   return res.status(404).json({message: 'Employee not found'});
+    //  }
      const data = {
       employeeId,
       rating: rating +'%',
