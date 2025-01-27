@@ -18,6 +18,6 @@ const newUser  = await  employeInfo.create({
 res.status(201).json({message:`New user created`, data:newUser})
 
   } catch (error) {
-    res.status(500).json({message:`error.message`})
+    res.status(500).json({message:error.message})
   }
 }
