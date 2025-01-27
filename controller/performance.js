@@ -1,5 +1,5 @@
-const { employeperformance } = require('../models');
-
+const { employePerformance } = require('../models');
+console.log(employePerformance)
 exports.createPerformance = async (req, res) => {
   try {
     const date = new Date
@@ -16,7 +16,7 @@ exports.createPerformance = async (req, res) => {
       rating: rating +'%',
       punctuality: punctuality
      }
-     const employeePerformance = await employeperformance.create(data);
+     const employeePerformance = await employePerformance.create(data);
      res.status(201).json({
       message: 'Employee performance created successfully',
       data: employeePerformance
