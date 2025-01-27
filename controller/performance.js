@@ -14,7 +14,7 @@ exports.createPerformance = async (req, res) => {
      const data = {
       employeeId,
       rating: rating +'%',
-      punctuality: punctuality
+      puctuality: punctuality
      }
      const employeePerformance = await employePerformance.create(data);
      res.status(201).json({
