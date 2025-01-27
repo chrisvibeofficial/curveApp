@@ -25,8 +25,14 @@ res.status(201).json({message:`New user created`, data:newUser})
 
 exports.bulkuser =async(req,res)=>{try {
 
-  const users = await employeInfo.bulkCreate(req.body,{validate:true})
-  res.status(201).json({message:`multiple user created`,data:users})
+  // const users = 
+// console.log(req.body)
+
+const data = req.body
+ data.map((x)=> {return x.id = uuidv4()})
+ await employeInfo.bulkCreate(data,{validate:true})
+
+  res.status(201).json({message:`multiple user created`,data})
 } catch (error) {
   res.status(500).json({message:error.message})
   
