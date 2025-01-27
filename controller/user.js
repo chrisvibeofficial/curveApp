@@ -37,3 +37,15 @@ const data = req.body
   res.status(500).json({message:error.message})
   
 }}
+
+exports.getUserInfo =async (req,res)=>{
+  try {
+
+    const userInfo = await employeInfo.findByPK(req.params.id,{include:[
+      {model:"employePerformance",attributes:["rating","punctuality"]}
+    ]})
+    res.status(200).json({message:`kindly find below the user requested and the associated data`, data:userInfo})
+  } catch (error) {
+    res.status(500).json({message:error.message})
+  }
+}

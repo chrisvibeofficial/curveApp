@@ -1,4 +1,4 @@
-const {createUser, bulkuser} = require("../controller/user")
+const {createUser, bulkuser, getUserInfo} = require("../controller/user")
 
 const router = require("express").Router()
 
@@ -7,6 +7,7 @@ const router = require("express").Router()
 
 router.post("/user",createUser)
 
+router.get("/user/:id", getUserInfo)
 
 router.post("/multiple",bulkuser)
 
